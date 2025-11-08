@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Margarita — Receta clásica | CoctelesMix</title>
+  <meta name="description" content="Receta de Margarita: tequila, triple sec y jugo de lima. Pasos simples para un clásico perfecto." />
+  <link rel="canonical" href="https://davidapc00-rm.github.io/proyecto_final_coder/margarita.html" />
+  <meta property="og:title" content="Margarita — Receta clásica | CoctelesMix" />
+  <meta property="og:description" content="Tequila, triple sec y lima. Ingredientes y pasos en 5 minutos." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://davidapc00-rm.github.io/proyecto_final_coder/margarita.html" />
+  <meta property="og:image" content="https://davidapc00-rm.github.io/proyecto_final_coder/assets/margarita.jpg" />
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="theme-color" content="#0e4a5b" />
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+    crossorigin="anonymous"
+  />
+  <!-- Tu CSS (compilado de SASS) debe ir después de Bootstrap -->
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="icon" href="assets/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="assets/icon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#0e4a5b">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+</head>
+
+<script>
+(() => {
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const els = document.querySelectorAll('.reveal');
+
+  if (!els.length) return;
+
+  // Si el usuario prefiere menos movimiento: mostrar todo y salir
+  if (prefersReduced) {
+    els.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+
+  // Evita jank: dispara un poco antes de que entre (rootMargin negativo abajo)
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        // Revela una sola vez
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+
+  els.forEach(el => io.observe(el));
+
+  // ⚠️ Carrusel: si pusiste .reveal en toda la sección del carrusel,
+  // animará solo la primera vez que entra en viewport (no en cada slide).
+})();
+</script>
+
+<body>
+  <!-- Header -->
+  <header class="bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark" aria-label="Navegación principal">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">CoctelesMix</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Mostrar navegación"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="mainNav" class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto gap-2">
+            <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="recetas.html" aria-current="page">Recetas</a></li>
+            <li class="nav-item"><a class="nav-link" href="tecnicas.html">Técnicas</a></li>
+            <li class="nav-item"><a class="nav-link" href="herramientas.html">Herramientas</a></li>
+            <li class="nav-item"><a class="nav-link" href="sobre-contacto.html">Sobre &amp; Contacto</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="py-4">
+    <div class="container container-narrow">
+
+      <!-- Breadcrumb (Bootstrap) -->
+      <nav aria-label="breadcrumb" class="mb-3">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+          <li class="breadcrumb-item"><a href="recetas.html">Recetas</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Margarita</li>
+        </ol>
+      </nav>
+
+      <div class="row g-4">
+        <!-- Contenido -->
+        <article class="col-12 col-lg-8 reveal">
+          <h1 class="h2 mb-3">Margarita</h1>
+
+          <figure class="mb-3">
+            <picture>
+              <source srcset="assets/margarita-1200.webp" type="image/webp">
+              <img
+                src="assets/margarita.jpg"
+                alt="Copa de Margarita con sal y rodaja de lima; fondo oscuro y reflejos en la mesa"
+                width="1591" height="2048" loading="lazy" decoding="async"
+                class="img-fluid rounded receta-hero"
+              />
+            </picture>
+            <!-- texto oscuro para accesibilidad -->
+            <figcaption class="mt-1 text-body">Tequila, triple sec y lima.</figcaption>
+          </figure>
+
+          <!-- Meta opcional -->
+          <dl class="row small text-muted">
+            <dt class="col-4 col-sm-3">Dificultad</dt>
+            <dd class="col-8 col-sm-9">Fácil</dd>
+            <dt class="col-4 col-sm-3">Tiempo</dt>
+            <dd class="col-8 col-sm-9">5 minutos</dd>
+            <dt class="col-4 col-sm-3">Rinde</dt>
+            <dd class="col-8 col-sm-9">1 porción</dd>
+          </dl>
+
+          <section class="mb-4" aria-labelledby="ingredientes-titulo">
+            <h2 id="ingredientes-titulo" class="h4">Ingredientes</h2>
+            <ul class="mb-0">
+              <li>50 ml tequila blanco</li>
+              <li>25 ml triple sec (Cointreau)</li>
+              <li>25 ml jugo de lima recién exprimido</li>
+              <li>Sal fina para escarchar (opcional)</li>
+              <li>Hielo</li>
+            </ul>
+          </section>
+
+          <section class="mb-4" aria-labelledby="pasos-titulo">
+            <h2 id="pasos-titulo" class="h4">Pasos</h2>
+            <ol class="mb-0">
+              <li>Escarchar el borde de una copa con sal (humedece con lima y pasa por sal fina).</li>
+              <li>En una <a href="tecnicas.html#coctelera" class="link-primary">coctelera</a> con hielo, agrega tequila, triple sec y jugo de lima.</li>
+              <li>Agita enérgicamente 8–10&nbsp;s, cuela fino y sirve en la copa.</li>
+              <li>Decora con rodaja de lima.</li>
+            </ol>
+          </section>
+
+          <div class="d-flex gap-2">
+            <a href="recetas.html" class="btn btn-outline-primary">Volver a recetas</a>
+            <a href="tecnicas.html" class="btn btn-primary">Ver técnicas</a>
+          </div>
+        </article>
+
+        <!-- Sidebar -->
+        <aside class="col-12 col-lg-4 reveal">
+          <div class="surface-card">
+            <h2 class="h5">Tips</h2>
+            <ul class="mb-2">
+              <li>Usa lima fresca; ajusta dulzor con un toque de jarabe simple si lo prefieres.</li>
+              <li>Prueba con sal ahumada o sal + ají para un borde diferente.</li>
+              <li>Agita fuerte para lograr buena aireación y temperatura.</li>
+            </ul>
+            <p class="mb-0">Si prefieres en las rocas, sirve en vaso bajo con hielo fresco.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-primary text-white mt-5">
+    <div class="container py-4">
+      <p class="mb-1">&copy; 2025 CoctelesMix</p>
+      <nav aria-label="Enlaces secundarios">
+        <a class="link-light me-3" href="sobre-contacto.html#terminos">Términos</a>
+        <a class="link-light me-3" href="sobre-contacto.html#privacidad">Privacidad</a>
+        <a class="link-light me-3" href="sobre-contacto.html#contacto">Contacto</a>
+        <a class="link-light" href="https://www.instagram.com/cocteles_mix" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- JSON-LD: BreadcrumbList + Recipe -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Inicio","item":"https://davidapc00-rm.github.io/proyecto_final_coder/index.html"},
+          {"@type":"ListItem","position":2,"name":"Recetas","item":"https://davidapc00-rm.github.io/proyecto_final_coder/recetas.html"},
+          {"@type":"ListItem","position":3,"name":"Margarita","item":"https://davidapc00-rm.github.io/proyecto_final_coder/margarita.html"}
+        ]
+      },
+      {
+        "@type":"Recipe",
+        "name":"Margarita",
+        "description":"Tequila, triple sec y jugo de lima. Clásico refrescante con borde de sal.",
+        "image":["https://davidapc00-rm.github.io/proyecto_final_coder/assets/margarita.jpg"],
+        "recipeCategory":"Bebida",
+        "recipeCuisine":"Internacional",
+        "recipeYield":"1 porción",
+        "prepTime":"PT5M",
+        "totalTime":"PT5M",
+        "keywords":"coctelería, margarita, tequila, triple sec, lima",
+        "recipeIngredient":[
+          "50 ml tequila",
+          "25 ml triple sec",
+          "25 ml jugo de lima",
+          "Sal para el borde",
+          "Hielo"
+        ],
+        "recipeInstructions":[
+          {"@type":"HowToStep","text":"Escarchar la copa con sal."},
+          {"@type":"HowToStep","text":"Agitar tequila, triple sec y jugo de lima con hielo en coctelera."},
+          {"@type":"HowToStep","text":"Colar en la copa y (opcional) decorar con rodaja de lima."}
+        ],
+        "author":{"@type":"Organization","name":"CoctelesMix"},
+        "aggregateRating":{
+          "@type":"AggregateRating",
+          "ratingValue":"4.8",
+          "ratingCount":"126"
+        },
+        "nutrition":{
+          "@type":"NutritionInformation",
+          "calories":"180 kcal",
+          "carbohydrateContent":"11 g",
+          "sugarContent":"10 g"
+        },
+        "inLanguage":"es",
+        "url":"https://davidapc00-rm.github.io/proyecto_final_coder/margarita.html"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Bootstrap JS -->
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>

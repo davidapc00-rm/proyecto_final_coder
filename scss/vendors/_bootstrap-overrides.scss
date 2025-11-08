@@ -1,0 +1,90 @@
+/* scss/vendors/_bootstrap-overrides.scss */
+/* Mapea tu tema (definido en themes/_light.scss) a variables CSS de Bootstrap */
+:root {
+  --bs-primary: var(--c-primary);
+  --bs-body-bg: var(--c-surface);
+  --bs-body-color: var(--c-on-surface);
+  --bs-link-color: var(--c-link);
+  --bs-link-hover-color: var(--c-link-hover);
+  --bs-secondary-color: rgba(255, 255, 255, .82);
+  --bs-secondary-color-rgb: 255, 255, 255;
+
+  /* Opcionales */
+  --bs-border-radius: .5rem;
+  --bs-border-radius-sm: .375rem;
+  --bs-border-radius-lg: .75rem;
+}
+
+/* Ajustes puntuales de navbar en fondo primario */
+.navbar,
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: var(--c-on-primary);
+}
+
+.btn-primary {
+  background-color: var(--c-primary);
+  border-color: var(--c-primary);
+}
+.btn-primary:hover {
+  filter: brightness(1.05);
+}
+
+/* ============================
+   CONTRASTE: texto oscuro en superficies claras
+   ============================ */
+
+/* 1) Por defecto, los "muted" son claros (para fondos oscuros) */
+:root {
+  --bs-secondary-color: rgba(255, 255, 255, .84);
+  --bs-secondary-color-rgb: 255, 255, 255;
+}
+
+/* 2) En superficies claras (bg-light) cambiamos el token a oscuro */
+.bg-light {
+  color: #0e2430; /* texto base oscuro */
+  --bs-secondary-color: rgba(14, 36, 48, .65); /* muted legible sobre claro */
+}
+
+/* Todo lo típico dentro de bg-light hereda color oscuro */
+.bg-light :where(h1,h2,h3,h4,h5,h6,p,li,small,span,strong,em,figcaption) {
+  color: inherit !important;
+}
+
+/* Enlaces con buen contraste en claro */
+.bg-light a { color: #0e4a5b; text-decoration: underline; }
+.bg-light a:hover { color: #ce4a2a; }
+
+/* 3) Figcaption SIEMPRE oscuro (sus chips/áreas son claras) */
+figure > figcaption,
+.figure-caption {
+  color: #0e2430 !important;
+}
+
+/* 4) Paneles “Tips” (si usas una tarjeta clara o tu clase surface-card) */
+.surface-card {
+  background: #eaf2f8;                   /* claro */
+  color: #0e2430;                        /* texto oscuro */
+  border: 1px solid rgba(0,0,0,.08);
+  border-radius: .75rem;
+  padding: 1rem;
+}
+
+/* Ajuste de textos atenuados dentro del panel claro */
+.surface-card .text-muted,
+.surface-card .figure-caption {
+  color: rgba(14, 36, 48, .70) !important;
+}
+
+/* ===== Fix puntual: caption oscuro bajo la foto de Margarita ===== */
+/* El figcaption que sigue a la imagen de clase .receta-hero */
+.receta-hero + figcaption {
+  color: #0d1b22 !important;   /* bien oscuro */
+  opacity: 1 !important;       /* por si algún estilo lo dejaba tenue */
+}
+
+/* Refuerzo general por si en otra receta usamos figcaption sin la clase */
+figure > figcaption,
+.figure-caption {
+  color: #0d1b22 !important;
+}

@@ -1,0 +1,35 @@
+/* scss/main.scss */
+
+/* ===== ABSTRACTS ===== */
+@use "abstracts/variables";
+@use "abstracts/functions" as fn;
+@use "abstracts/mixins" as mix;
+
+/* ===== THEME ===== */
+@use "themes/light";
+
+/* ===== VENDORS (override de Bootstrap con tu tema) ===== */
+/* Requiere scss/vendors/_bootstrap-overrides.scss */
+@use "vendors/bootstrap-overrides";
+
+/* ===== BASE ===== */
+@use "base/reset";
+@use "base/typography";
+@use "base/media";
+@use "base/helpers";
+
+/* ===== LAYOUT ===== */
+@use "layout/container";
+@use "layout/grid";
+
+/* ===== COMPONENTS ===== */
+@use "components/navbar";
+@use "components/buttons";
+@use "components/cards";
+@use "components/carousel";
+
+/* ===== PAGES ===== */
+@use "pages/home";
+@use "pages/tecnicas";
+@use "pages/contacto";
+@use "pages/tools";

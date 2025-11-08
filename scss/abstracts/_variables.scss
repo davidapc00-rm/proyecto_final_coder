@@ -1,0 +1,40 @@
+@use "sass:map";
+
+// Paleta
+$colors: (
+  "primary": #0b5ed7,
+  "primary-700": #0949a8,
+  "accent": #ffc107,
+  "bg": #0d1b2a,
+  "text": #e5e7eb,
+  "muted": #94a3b8
+);
+
+// Tipografía y escala
+$font-base: 16px;
+$space: (
+  "xs": .25rem,
+  "sm": .5rem,
+  "md": 1rem,
+  "lg": 1.5rem,
+  "xl": 2rem
+);
+
+// Breakpoints (mobile-first)
+$breakpoints: (
+  "sm": 36rem,   // 576px
+  "md": 48rem,   // 768px (tablet)
+  "lg": 62rem,   // 992px
+  "xl": 75rem    // 1200px
+);
+
+/* Sugerencia de alias simples (compatibilidad con parciales viejos) */
+$radius: .75rem;
+
+// Atajos directos si los quieres (opcionales)
+$color-primario: map.get($colors, "primary");
+$color-acento:   map.get($colors, "accent");
+$color-texto:    map.get($colors, "text");
+$color-fondo:    map.get($colors, "bg");
+
+$font-main: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;

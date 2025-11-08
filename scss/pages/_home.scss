@@ -1,0 +1,43 @@
+/* scss/pages/_home.scss */
+@use "../abstracts/functions" as fn;
+@use "../abstracts/mixins" as mix;
+
+.hero {
+  /* gradiente suave y color del tema */
+  background: linear-gradient(180deg, #fff 0%, #{fn.tone("primary", 92%)} 100%);
+  color: fn.color-token("primary");
+  @include mix.section-pad(lg);
+}
+
+.hero__layout {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 4vw, 3rem);
+}
+
+.hero__title {
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  margin: 0 0 .25rem;
+}
+
+.hero__subtitle { opacity: .9; }
+
+.hero__img {
+  max-width: clamp(220px, 28vw, 360px);
+  height: auto;
+  display: block;
+}
+
+.hero--anim {
+  animation: heroFade .9s ease both;
+}
+
+@keyframes heroFade {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Grid de recetas en home (si lo usas ahí) */
+.recetas-grid {
+  @include mix.grid-auto-fit(14rem, 1rem);
+}

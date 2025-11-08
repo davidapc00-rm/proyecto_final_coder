@@ -1,0 +1,36 @@
+@use "../abstracts/functions" as fn;
+
+/* Base para variantes personalizadas */
+%btn-base {
+  display: inline-block;
+  border: 0;
+  border-radius: .5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding: .65rem 1rem;
+  transition: filter .2s ease, box-shadow .2s ease;
+}
+
+/* Usa junto con tamaños de Bootstrap: .btn, .btn-sm, .btn-lg */
+.btn--primary {
+  @extend %btn-base;
+  background: var(--c-primary);
+  color: var(--c-on-primary);
+}
+.btn--primary:hover,
+.btn--primary:focus { filter: brightness(1.06); }
+
+.btn--accent {
+  @extend %btn-base;
+  background: var(--c-accent);
+  color: var(--c-on-accent);
+}
+.btn--accent:hover,
+.btn--accent:focus { filter: brightness(1.06); }
+
+/* Foco visible alto contraste */
+:where(.btn--primary, .btn--accent):focus-visible {
+  outline: 2px solid var(--c-on-primary);
+  outline-offset: 2px;
+}

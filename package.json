@@ -1,0 +1,21 @@
+{
+  "name": "proyecto_final_coder",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "sass --watch scss/main.scss css/styles.css",
+    "build": "sass scss/main.scss css/styles.css --no-source-map --style=compressed",
+    "favicons": "node scripts/generate-favicons.mjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "png-to-ico": "^3.0.1",
+    "prettier": "^3.6.2",
+    "sass": "^1.93.3",
+    "sharp": "^0.34.5",
+    "sharp-cli": "^5.2.0"
+  }
+}

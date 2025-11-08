@@ -1,0 +1,15 @@
+@use "../abstracts/variables" as v;
+
+/* scss/pages/_tecnicas.scss */
+.tecnica-img {
+  width: 100%;
+  height: clamp(240px, 40vw, 460px);
+  object-fit: cover;
+  border-radius: .75rem;
+}
+.page-subtitle {
+  color: var(--bs-secondary-color);
+  opacity: 1;
+  margin-top: .25rem;
+  max-width: 68ch;
+}

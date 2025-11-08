@@ -1,0 +1,15 @@
+@use "../abstracts/functions" as fn;
+
+figure { background: fn.tone("primary", 92%); } /* suave */
+figcaption { color: fn.color-token("muted"); font-size: .9rem; }
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  transition: transform .2s ease, filter .2s ease;
+}
+img:hover {
+  transform: scale(1.01);
+  filter: saturate(1.05);
+}

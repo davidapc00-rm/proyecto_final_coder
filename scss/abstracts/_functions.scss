@@ -1,0 +1,68 @@
+// scss/abstracts/_functions.scss
+@use "sass:map";
+@use "sass:math";
+@use "sass:color";
+@use "variables" as v;
+
+// Convierte un valor en px a rem usando la base tipográfica.
+// - Si ya es rem, lo devuelve tal cual.
+// - Si es unitless, se asume px.
+// - Si es otra unidad, se devuelve sin cambios.
+@function rem($px, $base: v.$font-base) {
+  @if unit($px) == "rem" {
+    @return $px;
+  }
+  @if unit($px) == "px" {
+    @return math.div($px, $base) * 1rem;
+  }
+  @if unit($px) == "" {
+    @return math.div($px * 1px, $base) * 1rem;
+  }
+  @return $px;
+}
+
+// Devuelve un espaciado a partir del mapa de tokens v.$space
+// e.g. space("md") -> 1rem (según tu mapa)
+@function space($name) {
+  @if map.has-key(v.$space, $name) {
+    @return map.get(v.$space, $name);
+  }
+  @error "space(): no existe el token `#{$name}` en v.$space. Claves válidas: #{map.keys(v.$space)}";
+}
+
+// Devuelve un color desde el mapa v.$colors
+// e.g. color-token("primary")
+@function color-token($name) {
+  @if map.has-key(v.$colors, $name) {
+    @return map.get(v.$colors, $name);
+  }
+  @error "color-token(): no existe el token `#{$name}` en v.$colors. Claves válidas: #{map.keys(v.$colors)}";
+}
+
+// Z-index semántico para evitar números mágicos
+// e.g. z("sticky")
+@function z($layer) {
+  $layers: (
+    base: 0,
+    dropdown: 1000,
+    sticky: 1020,
+    fixed: 1030,
+    offcanvas: 1040,
+    "modal-backdrop": 1050,
+    modal: 1060,
+    popover: 1070,
+    tooltip: 1080,
+    toast: 1090
+  );
+  @if map.has-key($layers, $layer) {
+    @return map.get($layers, $layer);
+  }
+  @error "z(): capa desconocida `#{$layer}`. Capas válidas: #{map.keys($layers)}";
+}
+
+// Genera un tono derivado (aclara/oscurece) a partir de un token de color
+// e.g. tone("primary", 12%)
+@function tone($name, $lightness: 8%) {
+  $c: color-token($name);
+  @return color.scale($c, $lightness: $lightness);
+}

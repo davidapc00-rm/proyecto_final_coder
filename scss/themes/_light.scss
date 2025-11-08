@@ -1,0 +1,82 @@
+// scss/themes/_light.scss
+@use "sass:map";
+@use "../abstracts/variables" as v;
+
+// Mapa de tema (tokens semánticos)
+// Ajusta los valores si cambias tu paleta en abstracts/_variables.scss
+$light: (
+  surface:       map.get(v.$colors, "bg"),
+  on-surface:    map.get(v.$colors, "text"),
+  surface-alt:   #122235,
+  primary:       map.get(v.$colors, "primary"),
+  on-primary:    #ffffff,
+  accent:        map.get(v.$colors, "accent"),
+  on-accent:     #0d1b2a,
+  muted:         map.get(v.$colors, "muted"),
+  border:        rgba(255,255,255,.12),
+  link:          map.get(v.$colors, "primary"),
+  link-hover:    #2a74ea
+);
+
+// Exporta como CSS variables (raíz y clase .theme--light)
+:root,
+.theme--light {
+  --c-surface:      #{map.get($light, surface)};
+  --c-on-surface:   #{map.get($light, on-surface)};
+  --c-surface-alt:  #{map.get($light, surface-alt)};
+  --c-primary:      #{map.get($light, primary)};
+  --c-on-primary:   #{map.get($light, on-primary)};
+  --c-accent:       #{map.get($light, accent)};
+  --c-on-accent:    #{map.get($light, on-accent)};
+  --c-muted:        #{map.get($light, muted)};
+  --c-border:       #{map.get($light, border)};
+  --c-link:         #{map.get($light, link)};
+  --c-link-hover:   #{map.get($light, link-hover)};
+}
+
+/* Aplicación base del tema */
+body {
+  background: var(--c-surface);
+  color: var(--c-on-surface);
+}
+
+/* Enlaces coherentes con el tema */
+a {
+  color: var(--c-link);
+  text-underline-offset: 2px;
+  transition: color .2s ease, text-underline-offset .2s ease;
+}
+a:hover {
+  color: var(--c-link-hover);
+  text-underline-offset: 4px;
+}
+
+/* Utilidades rápidas de tema */
+.theme-surface   { background: var(--c-surface);     color: var(--c-on-surface); }
+.theme-surface-2 { background: var(--c-surface-alt); color: var(--c-on-surface); }
+.theme-primary   { background: var(--c-primary);     color: var(--c-on-primary); }
+.theme-accent    { background: var(--c-accent);      color: var(--c-on-accent); }
+.theme-border    { border-color: var(--c-border); }
+
+/* Botones basados en variables del tema (coexisten con tus .btn de components) */
+.btn--primary {
+  background: var(--c-primary);
+  color: var(--c-on-primary);
+}
+.btn--accent {
+  background: var(--c-accent);
+  color: var(--c-on-accent);
+}
+
+/* Tarjetas/minipaneles con borde/overlay del tema (opcional) */
+.card--theme {
+  background: var(--c-surface-alt);
+  color: var(--c-on-surface);
+  border: 1px solid var(--c-border);
+}
+
+/* Soporte opcional para focus visible con alto contraste */
+:where(a, button, .btn--primary, .btn--accent):focus-visible {
+  outline: 2px solid var(--c-on-primary);
+  outline-offset: 2px;
+}

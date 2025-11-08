@@ -1,0 +1,56 @@
+/* Herramientas: contraste alto y estética sobre imágenes */
+.tools-grid {
+  /* paleta para textos claros */
+  --tools-text: #eef4ff;
+  --tools-muted: #dbe7ff;
+
+  .card {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 0.75rem;
+  }
+
+  /* oscurece sutilmente las imágenes para ganar contraste */
+  .card-img-top {
+    display: block;
+    width: 100%;
+    height: auto;
+    filter: brightness(0.78) saturate(0.95) contrast(1.02);
+  }
+
+  /* capa inferior del body con gradiente para que el texto siempre sea legible */
+  .card-body {
+    position: relative;
+    background: linear-gradient(
+      180deg,
+      rgba(5, 12, 20, 0.00) 0%,
+      rgba(5, 12, 20, 0.45) 30%,
+      rgba(5, 12, 20, 0.58) 100%
+    );
+    color: var(--tools-text);
+  }
+
+  /* Títulos en blanco pleno */
+  .card-title { color: #fff; }
+
+  /* Fuerza texto claro para párrafos, listas y detalles */
+  .card-text,
+  .text-body,
+  p, li, small, figcaption {
+    color: var(--tools-text) !important;
+  }
+
+  li::marker { color: var(--tools-muted); }
+
+  /* Botón claro para contrastar sobre imagen */
+  .btn-outline-primary {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.75);
+  }
+  .btn-outline-primary:hover,
+  .btn-outline-primary:focus-visible {
+    background: #fff;
+    color: #0e4a5b;
+  }
+}

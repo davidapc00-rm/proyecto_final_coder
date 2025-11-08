@@ -1,0 +1,22 @@
+/* scss/base/_helpers.scss */
+@use "../abstracts/mixins" as mix;
+
+/* Animación opt-in para secciones/elementos */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp .8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Utilidad de foco accesible (si quieres usarla como clase) */
+.u-focus {
+  @include mix.focus-ring();
+}
+
+/* Espaciados utilitarios, si se usan tokens de espacio) */
+.u-py-md { @include mix.section-pad(md); }
+.u-py-lg { @include mix.section-pad(lg); }

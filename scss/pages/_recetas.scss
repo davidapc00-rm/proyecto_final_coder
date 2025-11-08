@@ -1,0 +1,11 @@
+@use "../abstracts/mixins" as m;
+
+.recetas-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  @include m.respond(sm) { grid-template-columns: repeat(2, 1fr); }
+  @include m.respond(md) { grid-template-columns: repeat(3, 1fr); }
+  @include m.respond(lg) { grid-template-columns: repeat(4, 1fr); }
+}
